@@ -1,8 +1,9 @@
 // server.js
 
 import express from 'express';
-import mysql from 'mysql2';
+// import mysql from 'mysql2';
 import cors from 'cors';
+import db from "./db.js";
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 
@@ -19,21 +20,21 @@ app.use(bodyParser.json());
 // Use dynamic port for deployment or 5000 locally
 const PORT = process.env.PORT || 5000;
 
-// MySQL Connection
-const db = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
-});
+// // MySQL Connection
+// const db = mysql.createConnection({
+//   host: process.env.DB_HOST,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PASS,
+//   database: process.env.DB_NAME,
+// });
 
-db.connect((err) => {
-  if (err) {
-    console.error(' MySQL connection failed:', err);
-  } else {
-    console.log(' Connected to MySQL database!');
-  }
-});
+// db.connect((err) => {
+//   if (err) {
+//     console.error(' MySQL connection failed:', err);
+//   } else {
+//     console.log(' Connected to MySQL database!');
+//   }
+// });
 
 // Routes
 
